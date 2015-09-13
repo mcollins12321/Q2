@@ -9,7 +9,7 @@ package main;
  */
 import java.io.*;//a Java package that allows for input and output 
 import java.util.Scanner;
-import org.apache.poi.ss.formula.functions.FinanceLib;
+import org.apache.poi.ss.formula.functions.FinanceLib; // methods for financial calculations. 
 
 public class Retirement {
 	/**
@@ -67,10 +67,10 @@ public class Retirement {
 	    input.close();
 	    
 	    // CALCULATIONS
-	    pmtOUT = reqIncome - pmtSSI; 
-	    savings = FinanceLib.pv((annRtnRetired / pmtInterval), (pmtInterval * yrsRetire), pmtOUT, fv, false);
-	    pmtIN = FinanceLib.pmt((annRtnWorking / pmtInterval), (pmtInterval * yrsWork), pv, savings, false);
-	    savings *= -1;
+	    pmtOUT = reqIncome - pmtSSI; // determine required monthly retirement payment
+	    savings = FinanceLib.pv((annRtnRetired / pmtInterval), (pmtInterval * yrsRetire), pmtOUT, fv, false); // calc amt needed at retirement
+	    pmtIN = FinanceLib.pmt((annRtnWorking / pmtInterval), (pmtInterval * yrsWork), pv, savings, false); // calc payment during working life
+	    savings *= -1; // due to the equation savings is returned as a negative number, this corrects that. 
 	    
 	    // OUTPUT 
 	    System.out.print(String.format("To receive $ %1$,.2f every month of retirement you would need to save $ %2$,.2f" + 
