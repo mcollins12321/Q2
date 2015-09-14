@@ -4,7 +4,7 @@ package main;
  */
 
 /**
- * @author GE60
+ * Matt Collins & Vincent Fierro
  *
  */
 import java.io.*;//a Java package that allows for input and output 
